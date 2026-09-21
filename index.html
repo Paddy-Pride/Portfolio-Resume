@@ -1189,14 +1189,18 @@ function closeInfoOverlay() {
   document.body.style.overflow = '';
 }
 
-/* ============ RESUME ============ 
+/* ============ RESUME ============ */
 function downloadResume(e) {
   if (e) e.preventDefault();
   closeMenu();
-  // Replace with: window.open('Paddy_Pride_CV.pdf', '_blank');
-  alert('Add your CV PDF next to this file and update the link.');
+  const link = document.createElement('a');
+  link.href = 'PADDY_PRIDE%20CV.pdf';
+  link.download = 'Paddy_Pride_CV.pdf';   // saves as this name
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
-*/
+
 /* ============ OVERLAY CLOSE-ON-CLICK-OUTSIDE ============ */
 infoOverlay.addEventListener('click', (e) => {
   if (e.target === infoOverlay) closeInfoOverlay();
